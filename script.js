@@ -334,4 +334,30 @@ document.addEventListener("keydown",(e)=>{
 
     }
 
-});
+});  
+// Firebase config (এখানে তোমার নিজেরটা বসাবে)
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+// init Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+function sendAnswer(answer) {
+  db.collection("responses").add({
+    answer: answer,
+    time: new Date().toISOString()
+  })
+  .then(() => {
+    console.log("Saved:", answer);
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+}
