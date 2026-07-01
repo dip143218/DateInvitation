@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Date ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div id="mainPage">
+
+<div class="card">
+
+<div style="font-size:70px;">
+🌹
+</div>
+
+<h1>It's A Date ❤️</h1>
+
+<div id="result"></div>
+
+<br>
+
+<h2 style="color:#ff4f87;font-family:'Dancing Script',cursive;font-size:45px;">
+
+I Can't Wait To See You ❤️
+
+</h2>
+
+<p>
+
+See you soon...
+
+✨
+
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+const date=localStorage.getItem("date");
+
+const time=localStorage.getItem("time");
+
+const foods=JSON.parse(localStorage.getItem("foods"))||[];
+
+document.getElementById("result").innerHTML=`
+
+<h3>📅 ${date}</h3>
+
+<h3>🕒 ${time}</h3>
+
+<h3>🍽️ ${foods.join(", ")}</h3>
+
+`;
+
+</script>
+
+<script>
+
+for(let i=0;i<40;i++){
+
+let rose=document.createElement("div");
+
+rose.innerHTML="🌹";
+
+rose.style.position="fixed";
+
+rose.style.left=Math.random()*100+"%";
+
+rose.style.top="-40px";
+
+rose.style.fontSize=(20+Math.random()*25)+"px";
+
+rose.style.animation=`fall ${5+Math.random()*6}s linear infinite`;
+
+rose.style.animationDelay=Math.random()*5+"s";
+
+document.body.appendChild(rose);
+
+}
+
+</script></body>
+
+</html>
